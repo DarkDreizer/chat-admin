@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "prettier": "pretty-quick --pattern \"taskmaster/src/**/*.{ts,js,scss,html}\" --staged --verbose",
+    "prettier": "pretty-quick --pattern \"chat-admin/src/**/*.{ts,js,scss,html}\" --staged --verbose",
     "prepare": "husky"
   },
   "private": true,
