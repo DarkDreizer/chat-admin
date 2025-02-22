@@ -1,0 +1,25 @@
+.login-container {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../../../assets/blur-background.jpg);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 16px;
+}
+
+::ng-deep {
+  .p-component.p-card {
+    padding: 16px 46px;
+    background: rgba(24, 24, 27, 0.87);
+    margin-bottom: 24px;
+  }
+}
