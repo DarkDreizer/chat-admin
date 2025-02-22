@@ -1,0 +1,19 @@
+<div class="login-container">
+  <p-card styleClass="login-card">
+    <ng-template pTemplate="header">
+      <img alt="Lobica" src="../assets/logo-rectangle-300x100.png">
+    </ng-template>
+    <div class="card-content">
+      <p-iftalabel>
+        <input pInputText id="username" />
+        <label for="username">Username</label>
+      </p-iftalabel>
+      <p-iftalabel>
+        <p-password id="password" class="w-full" styleClass="w-full" inputStyleClass="w-full"></p-password>
+        <label for="password">Password</label>
+      </p-iftalabel>
+      <button pButton pRipple label="Login" severity="success">
+      </button>
+    </div>
+  </p-card>
+</div>
