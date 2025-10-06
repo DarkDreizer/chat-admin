@@ -2,3 +2,20 @@
 body {
   margin: 0;
 }
+
+:root {
+  --primary-color: #2f7a3e;
+  --accent-color: #84c784;
+  --text-color: #333;
+  --bg-color: #f8f9f8;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.logo {
+  max-height: 40px;
+}
