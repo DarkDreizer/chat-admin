@@ -28,7 +28,7 @@
             pButton
             icon="pi pi-pencil"
             class="p-button-sm p-mr-2"
-            (click)="editAgent(agent)"
+            (click)="openEditDialog(agent)"
           ></button>
         </td>
       </tr>
@@ -36,6 +36,51 @@
   </p-table>
 
   <div class="p-mt-3">
-    <button pButton label="Create New Agent" icon="pi pi-plus" (click)="createAgent()"></button>
+    <button pButton label="Create New Agent" icon="pi pi-plus" (click)="openCreateDialog()"></button>
   </div>
 </p-card>
+
+<p-dialog
+  header="{{ isEditing() ? 'Edit Agent' : 'Create Agent' }}"
+  [visible]="dialogVisible()"
+  (visibleChange)="dialogVisible.set($event)"
+  (onHide)="cancelDialog()"
+  [modal]="true"
+  [style]="{ width: '400px' }"
+>
+  <div class="p-fluid">
+    <div class="p-field p-mb-3 dialog-form r-gap">
+      <label for="name">Name</label>
+      <input
+        id="name"
+        type="text"
+        pInputText
+        [ngModel]="selectedAgent()?.name"
+        (ngModelChange)="updateSelected('name', $event)"
+      />
+
+      <label for="role">Role</label>
+      <input
+        id="role"
+        type="text"
+        pInputText
+        [ngModel]="selectedAgent()?.role"
+        (ngModelChange)="updateSelected('role', $event)"
+      />
+
+      <label for="personality">Personality</label>
+      <textarea
+        id="personality"
+        pTextarea
+        [ngModel]="selectedAgent()?.personality"
+        (ngModelChange)="updateSelected('personality', $event)"
+        rows="3"
+      ></textarea>
+    </div>
+
+    <div class="p-d-flex p-jc-end p-mt-3">
+      <button pButton label="Cancel" class="p-button-text p-mr-2" (click)="cancelDialog()"></button>
+      <button pButton label="Save" icon="pi pi-check" (click)="saveAgent()"></button>
+    </div>
+  </div>
+</p-dialog>
