@@ -8,22 +8,22 @@ import {LogsComponent} from './views/logs/logs.component';
 export const routes: Routes = [
   {
     path: '',
-    component: LoginComponent
+    loadComponent: () => import('./views/login/login.component').then(m => m.LoginComponent),
   },
   {
     path: 'dashboard',
-    component: DashboardComponent
+    loadComponent: () => import('./views/dashboard/dashboard.component').then(m => m.DashboardComponent),
   },
   {
     path: 'chat',
-    component: ChatConfigComponent
+    loadComponent: () => import('./views/chat/chat-config.component').then(m => m.ChatConfigComponent),
   },
   {
     path: 'agents',
-    component: AgentsComponent
+    loadComponent: () => import('./views/agents/agents.component').then(m => m.AgentsComponent),
   },
   {
     path: 'logs',
-    component: LogsComponent
+    loadComponent: () => import('./views/logs/logs.component').then(m => m.LogsComponent),
   }
 ];
