@@ -1,0 +1,25 @@
+<p-card>
+  <h2>Welcome, {{ user()?.name || 'User' }}!</h2>
+  <p>This is the administration panel for Lobica’s AI chat service.</p>
+</p-card>
+
+<div class="quick-links p-grid p-mt-4">
+  <div class="p-col-12 p-md-4">
+    <p-card header="Chat Configuration">
+      <p>Adjust global AI chat behavior.</p>
+      <a routerLink="/chat">Go to Chat Settings</a>
+    </p-card>
+  </div>
+  <div class="p-col-12 p-md-4">
+    <p-card header="AI Agents">
+      <p>Manage agent personalities, prompts, and roles.</p>
+      <a routerLink="/agents">Manage Agents</a>
+    </p-card>
+  </div>
+  <div class="p-col-12 p-md-4">
+    <p-card header="Chat Logs">
+      <p>View previous chats and analyze performance ratings.</p>
+      <a routerLink="/logs">Browse Logs</a>
+    </p-card>
+  </div>
+</div>

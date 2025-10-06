@@ -1,0 +1,72 @@
+<p-toast></p-toast>
+
+<button pButton icon="pi pi-arrow-left" label="Back" (click)="goBack()" class="p-button-secondary"></button>
+
+<p-card header="Chat Configuration">
+  <div class="p-fluid p-formgrid p-grid">
+    <div class="p-field p-col-12 p-md-6 r-gap">
+      <label for="temperature">Temperature</label>
+      <p-slider
+        [ngModel]="temperature()"
+        (ngModelChange)="temperature.set($event)"
+        [min]="0"
+        [max]="1"
+        [step]="0.01"
+      ></p-slider>
+      <div>{{ temperature().toFixed(2) }}</div>
+    </div>
+
+    <div class="p-field p-col-12 p-md-6 r-gap">
+      <label for="tokens" class="c-gap">Max Tokens</label>
+      <p-inputNumber
+        id="tokens"
+        [ngModel]="maxTokens()"
+        (ngModelChange)="maxTokens.set($event)"
+        [min]="100"
+        [max]="4000"
+      ></p-inputNumber>
+    </div>
+
+    <div class="p-field p-col-12 p-md-6 r-gap">
+      <p-checkbox
+        inputId="typing"
+        [ngModel]="enableTypingSim()"
+        (ngModelChange)="enableTypingSim.set($event)"
+        binary
+        class="c-gap"
+      ></p-checkbox>
+      <label for="typing">Enable Typing Simulation</label>
+    </div>
+
+    <div class="p-field p-col-12 p-md-6 r-gap">
+      <p-checkbox
+        inputId="memory"
+        [ngModel]="enableMemory()"
+        (ngModelChange)="enableMemory.set($event)"
+        binary
+        class="c-gap"
+      ></p-checkbox>
+      <label for="memory">Enable Memory</label>
+    </div>
+
+    <div class="p-field p-col-12 p-md-6 r-gap">
+      <label for="tone" class="c-gap">Emotional Tone</label>
+      <p-dropdown
+        [options]="toneOptions"
+        [ngModel]="tone()"
+        (ngModelChange)="tone.set($event)"
+        placeholder="Select tone"
+      ></p-dropdown>
+    </div>
+
+    <div class="p-field p-col-12 p-mt-4">
+      <button
+        pButton
+        type="button"
+        label="Save Configuration"
+        icon="pi pi-save"
+        (click)="saveConfig()"
+      ></button>
+    </div>
+  </div>
+</p-card>

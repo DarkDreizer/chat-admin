@@ -1,25 +1,25 @@
-.login-container {
-  width: 100vw;
-  height: 100vh;
-  background-image: url(../../../assets/blur-background.jpg);
-  background-position: center;
-  background-size: cover;
+:host {
   display: flex;
-  align-items: center;
   justify-content: center;
-}
-
-.card-content {
-  display: flex;
   align-items: center;
-  flex-direction: column;
-  gap: 16px;
+  min-height: 100vh;
+  background: var(--bg-color);
 }
 
-::ng-deep {
-  .p-component.p-card {
-    padding: 16px 46px;
-    background: rgba(24, 24, 27, 0.87);
-    margin-bottom: 24px;
-  }
+.logo {
+  max-height: 100px;
+  margin-bottom: 1rem;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-container {
+  display: grid;
+  grid-template-columns:  1fr 2fr;
+  gap: 8px;
+  align-items: center;
 }
