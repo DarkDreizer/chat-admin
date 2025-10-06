@@ -1,0 +1,58 @@
+<div class="p-mb-3">
+  <button
+    pButton
+    icon="pi pi-arrow-left"
+    label="Back"
+    class="p-button-secondary"
+    (click)="goBack()"
+  ></button>
+</div>
+
+<p-card header="Chat Logs">
+  <p-table [value]="chatLogs()" [paginator]="true" [rows]="5" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+        <th>Rating</th>
+        <th>Actions</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-log>
+      <tr>
+        <td>{{ log.user }}</td>
+        <td>{{ log.date | date: 'mediumDate' }}</td>
+        <td><p-rating [readonly]="true" [ngModel]="log.rating"></p-rating></td>
+        <td>
+          <button
+            pButton
+            icon="pi pi-eye"
+            class="p-button-sm"
+            (click)="viewChat(log)"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-card>
+
+<p-dialog
+  header="Chat Conversation"
+  [visible]="dialogVisible()"
+  (visibleChange)="dialogVisible.set($event)"
+  (onHide)="closeDialog()"
+  [modal]="true"
+  [style]="{ width: '500px' }"
+>
+  <div *ngIf="selectedLog()">
+    <p><strong>User:</strong> {{ selectedLog()?.user }}</p>
+    <p><strong>Date:</strong> {{ selectedLog()?.date | date: 'medium' }}</p>
+    <hr />
+    <div *ngFor="let msg of selectedLog()?.messages">
+      <p>
+        <strong>{{ msg.sender }}:</strong>
+        {{ msg.text }}
+      </p>
+    </div>
+  </div>
+</p-dialog>
