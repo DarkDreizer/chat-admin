@@ -1,0 +1,13 @@
+.quick-links {
+  gap: 1rem;
+
+  a {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}

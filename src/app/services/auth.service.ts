@@ -11,7 +11,7 @@ export class AuthService {
   }
 
   login(username: string, password: string): Observable<boolean> {
-    if (username === 'admin' && password === 'admin') {
+    if (username === 'admin@demo.com' && password === 'admin') {
       this._user.set({ id: 1, name: 'Admin', role: 'superadmin' });
       return of(true);
     }
